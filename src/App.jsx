@@ -965,7 +965,7 @@ export default function EuroShineServices() {
           <span>★</span> Connecticut's Premium Mobile Detailing <span>★</span>
         </div>
         {/* HEADLINE — edit here */}
-        <h1 className="hero-title">
+        <h1 className="gold-text">
          Premium Mobile Detailing<br />
          <span className="gold-text">in Connecticut</span>
         </h1>
@@ -994,7 +994,7 @@ export default function EuroShineServices() {
           <div className="section-title-block fade-in">
             <div className="section-eyebrow">What We Offer</div>
             {/* Section title — edit here */}
-            <h2 className="section-title">
+            <h2 className="gold-text">
               Detailing Services Tailored<br />
               <span className="gold-text">to Your Vehicle</span>
             </h2>
@@ -1062,7 +1062,7 @@ export default function EuroShineServices() {
         <div className="section-wrap">
           <div className="section-title-block fade-in">
             <div className="section-eyebrow">Service Packages</div>
-            <h2 className="section-title">
+            <h2 className="gold-text">
               Choose Your Level of<br />
               <span className="gold-text">EuroShine Care</span>
             </h2>
@@ -1141,7 +1141,7 @@ export default function EuroShineServices() {
         <div className="section-wrap">
           <div className="section-title-block fade-in">
             <div className="section-eyebrow">Add-On Services</div>
-            <h2 className="section-title">
+            <h2 className="gold-text">
               Enhance Your<br />
               <span className="gold-text">Detail</span>
             </h2>
@@ -1217,7 +1217,7 @@ export default function EuroShineServices() {
           <div className="fade-in">
             <div className="section-eyebrow">Ready to Book?</div>
             {/* CTA headline — edit here */}
-            <h2 className="cta-title">
+            <h2 className="gold-text">
               Let's Make Your Car<br />
               <span className="gold-text">Shine Like New.</span>
             </h2>
@@ -1259,7 +1259,7 @@ export default function EuroShineServices() {
   <div className="section-wrap">
     <div className="section-title-block fade-in">
       <div className="section-eyebrow">Follow EuroShine</div>
-      <h2 className="section-title">
+      <h2 className="gold-text">
         See Our Work on<br />
         <span className="gold-text">Social Media</span>
       </h2>
