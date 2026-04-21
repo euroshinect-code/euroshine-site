@@ -1211,7 +1211,7 @@ export default function EuroShineServices() {
   id="booking-calculator"
   className="py-20"
 >
-  <div className="mx-auto max-w-6xl px-4 md:px-6">
+  <div className="mx-auto max-w-7xl px-4 md:px-6">
     <div className="mx-auto max-w-3xl text-center mb-14 fade-in">
       <p className="text-[#d4af37] uppercase tracking-[0.25em] text-sm font-semibold mb-3">
         Booking Calculator
@@ -1225,7 +1225,8 @@ export default function EuroShineServices() {
       </p>
     </div>
 
-    <div className="mx-auto mt-10 grid max-w-5xl gap-8 lg:grid-cols-[1.15fr_0.85fr] items-start">
+    <div className="mt-10 flex justify-center">
+  <div className="grid w-full max-w-[1180px] gap-8 lg:grid-cols-[680px_420px] items-start">
       <div className="space-y-8">
         <div className="bg-[#0c1830] border border-white/10 rounded-3xl p-6 md:p-8">
           <h3 className="text-2xl font-bold text-white mb-5">
@@ -1255,6 +1256,7 @@ export default function EuroShineServices() {
                 </button>
               );
             })}
+            </div>
           </div>
         </div>
 
@@ -1406,7 +1408,7 @@ export default function EuroShineServices() {
 
       <div className="sticky top-24">
         <div className="bg-[#d4af37] text-[#07111f] rounded-3xl p-6 md:p-8 shadow-2xl">
-          <p className="rounded-[28px] bg-[#d4af37] text-[#07111f] p-6 md:p-8 overflow-visible">
+          <p className="pl-1 mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#07111f]/80">
             Booking Summary
           </p>
 
