@@ -1209,10 +1209,10 @@ export default function EuroShineServices() {
       {/* ══════════════════════════════════════════ */}
       <section
   id="booking-calculator"
-  className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr] items-start"
+  className="py-20"
 >
-  <div className="max-w-7xl mx-auto">
-    <div className="text-center mb-14 fade-in">
+  <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <div className="mx-auto max-w-3xl text-center mb-14 fade-in">
       <p className="text-[#d4af37] uppercase tracking-[0.25em] text-sm font-semibold mb-3">
         Booking Calculator
       </p>
@@ -1225,7 +1225,7 @@ export default function EuroShineServices() {
       </p>
     </div>
 
-    <div className="grid lg:grid-cols-[1.35fr_0.8fr] gap-8 items-start">
+    <div className="mx-auto mt-10 grid max-w-5xl gap-8 lg:grid-cols-[1.15fr_0.85fr] items-start">
       <div className="space-y-8">
         <div className="bg-[#0c1830] border border-white/10 rounded-3xl p-6 md:p-8">
           <h3 className="text-2xl font-bold text-white mb-5">
