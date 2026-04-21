@@ -1209,14 +1209,14 @@ export default function EuroShineServices() {
       {/* ══════════════════════════════════════════ */}
       <section
   id="booking-calculator"
-  className="py-24 px-6 bg-[#07111f] scroll-mt-28"
+  className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr] items-start"
 >
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-14 fade-in">
       <p className="text-[#d4af37] uppercase tracking-[0.25em] text-sm font-semibold mb-3">
         Booking Calculator
       </p>
-      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[#d4af37]">
         Build Your Detail
       </h2>
       <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
@@ -1406,7 +1406,7 @@ export default function EuroShineServices() {
 
       <div className="sticky top-24">
         <div className="bg-[#d4af37] text-[#07111f] rounded-3xl p-6 md:p-8 shadow-2xl">
-          <p className="uppercase tracking-[0.25em] text-xs font-bold mb-3">
+          <p className="rounded-[28px] bg-[#d4af37] text-[#07111f] p-6 md:p-8 overflow-visible">
             Booking Summary
           </p>
 
