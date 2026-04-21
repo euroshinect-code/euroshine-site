@@ -776,10 +776,10 @@ const expressPackages = [
       "Foam pre-soak & pressure rinse",
       "Hand wash & decontamination",
       "Wheel & brake dust removal",
-      "Tire shine & dressing",
+      "Tire shine",
       "Exterior window polish",
       "Spray wax protection",
-      "Door jamb cleaning & rinse",
+      "Door jamb wipe-down",
     ],
   },
   {
@@ -792,7 +792,7 @@ const expressPackages = [
       "Dashboard & panel wipe-down",
       "Door jambs & cup holders cleaned",
       "Interior glass treatment",
-      "Light odor elimination",
+      "Light odor refresh",
     ],
   },
   {
@@ -803,7 +803,8 @@ const expressPackages = [
     save: "Save $30",
     featured: true,
     desc: "Our most popular package — combines interior and exterior detailing in one visit and saves you money compared to booking separately.",
-    includes: [
+    includes: 
+    [
       "Everything in Express Exterior",
       "Everything in Express Interior",
       "Combined booking discount",
@@ -820,13 +821,13 @@ const deluxePackages = [
     desc: "A premium exterior treatment using European-grade products — clay bar decontamination, hand wash, iron remover, and protective dressing.",
     price: "$190",
     includes: [
-      "Foam bath & enzyme pre-treat",
-      "Clay bar paint decontamination",
-      "Iron & fallout remover",
-      "Wheel deep clean & sealant",
-      "Tire dressing & trim restoration",
-      "Exterior glass & chrome polish",
-    ],
+    "Everything from Express Exterior",
+    "+ Clay bar decontamination",
+    "+ Iron & fallout removal",
+    "+ Deep wheel cleaning",
+    "+ Trim restoration",
+    "+ Premium protection"
+   ],
   },
   {
     type: "Interior",
@@ -834,12 +835,13 @@ const deluxePackages = [
     desc: "A thorough premium interior detailing — steam clean, leather conditioning, stain extraction, and a fresh protected finish throughout.",
     price: "$430",
     includes: [
-      "Full deep vacuum & extraction",
-      "Steam clean & sanitize surfaces",
-      "Leather conditioning & protection",
-      "Fabric stain removal & treatment",
-      "Vent cleaning & odor treatment",
-      "Interior glass clarity treatment",
+    "Everything from Express Interior",
+    "+ Steam cleaning & sanitizing",
+    "+ Deep vacuum & extraction (seats, carpets)",
+    "+ Stain removal treatment",
+    "+ Vent & hard-to-reach area cleaning",
+    "+ Leather conditioning & protection",
+    "+ Interior protection finish"
     ],
   },
   {
