@@ -1035,7 +1035,7 @@ export default function EuroShineServices() {
         .getElementById("booking-calculator")
         ?.scrollIntoView({ behavior: "smooth", block: "start" })
     }
-    className="hidden md:inline-flex items-center rounded-full bg-[#d4af37] text-[#07111f] font-semibold px-5 py-2.5 hover:brightness-110 transition"
+    className="hidden md:inline-flex items-center rounded-full bg-[#d4af37] text-[#07111f] font-semibold px-5 py-2.5 border border-[#d4af37] shadow-[0_8px_24px_rgba(212,175,55,0.25)] hover:bg-[#e7c65a] hover:shadow-[0_10px_28px_rgba(212,175,55,0.35)] transition"
   >
     Book Now
   </button>
