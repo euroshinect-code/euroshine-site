@@ -1207,19 +1207,19 @@ export default function EuroShineServices() {
             {/* ══════════════════════════════════════════ */}
       {/* BOOKING CALCULATOR */}
       {/* ══════════════════════════════════════════ */}
-      <section
-  id="booking-calculator"
-  className="py-20"
->
-  <div className="mx-auto max-w-7xl px-4 md:px-6">
-    <div className="mx-auto max-w-3xl text-center mb-14 fade-in">
+      <section id="booking-calculator" className="py-20">
+  <div className="mx-auto max-w-[1400px] px-6">
+    
+    <div className="mx-auto max-w-4xl text-center mb-14 fade-in">
       <p className="text-[#d4af37] uppercase tracking-[0.25em] text-sm font-semibold mb-3">
         Booking Calculator
       </p>
+
       <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[#d4af37]">
         Build Your Detail
       </h2>
-      <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
+
+      <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed mt-4">
         Select your vehicle, choose your interior and exterior package, add extras,
         and see your estimated total before booking.
       </p>
@@ -1233,7 +1233,7 @@ export default function EuroShineServices() {
             1. Select Vehicle Type
           </h3>
 
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="flex flex-wrap gap-4">
             {[
               { key: "sedan", label: "Sedan" },
               { key: "suv", label: "SUV / Jeep" },
@@ -1265,7 +1265,7 @@ export default function EuroShineServices() {
             2. Choose Exterior Package
           </h3>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="flex flex-wrap gap-4">
             {[
               {
                 key: "expressExterior",
@@ -1307,7 +1307,7 @@ export default function EuroShineServices() {
             3. Choose Interior Package
           </h3>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="flex flex-wrap gap-4">
             {[
               {
                 key: "expressInterior",
@@ -1373,7 +1373,7 @@ export default function EuroShineServices() {
                 Pet Hair Removal
               </div>
 
-              <div className="grid md:grid-cols-4 gap-4">
+              <div className="flex flex-wrap gap-4">
                 {[
                   { key: "none", label: "None", price: 0 },
                   { key: "light", label: "Light", price: 30 },
