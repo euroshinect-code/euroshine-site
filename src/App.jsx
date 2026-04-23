@@ -1208,14 +1208,13 @@ export default function EuroShineServices() {
       {/* BOOKING CALCULATOR */}
       {/* ══════════════════════════════════════════ */}
       <section id="booking-calculator" className="py-20">
-  <div className="mx-auto max-w-[1400px] px-6">
-    
+  <div className="mx-auto w-full max-w-[1440px] px-6 md:px-8 lg:px-10">
     <div className="mx-auto max-w-4xl text-center mb-14 fade-in">
       <p className="text-[#d4af37] uppercase tracking-[0.25em] text-sm font-semibold mb-3">
         Booking Calculator
       </p>
 
-      <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[#d4af37]">
+      <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#d4af37]">
         Build Your Detail
       </h2>
 
@@ -1225,21 +1224,18 @@ export default function EuroShineServices() {
       </p>
     </div>
 
-    <div className="mt-10 flex justify-center">
-  <div className="grid w-full max-w-[1180px] gap-8 lg:grid-cols-[680px_420px] items-start">
+    <div className="grid gap-8 xl:gap-10 lg:grid-cols-[minmax(0,1fr)_430px] items-start">
       <div className="space-y-8">
         <div className="bg-[#0c1830] border border-white/10 rounded-3xl p-6 md:p-8">
-          <h3 className="text-2xl font-bold text-white mb-5">
-            1. Select Vehicle Type
-          </h3>
+          <h3 className="text-2xl font-bold text-white mb-5">1. Select Vehicle Type</h3>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { key: "sedan", label: "Sedan" },
               { key: "suv", label: "SUV / Jeep" },
               { key: "van", label: "Van" },
             ].map((item) => {
-              const active = vehicleType === item.key;
+              const active = vehicleType === item.key
 
               return (
                 <button
@@ -1252,35 +1248,38 @@ export default function EuroShineServices() {
                       : "bg-[#0c1830] text-white border-white/10 hover:border-[#d4af37] hover:bg-[#10203d]"
                   }`}
                 >
-                  <div className="font-semibold text-lg">{item.label}</div>
+                  <div className="text-xl font-bold">{item.label}</div>
                 </button>
-              );
+              )
             })}
-            </div>
           </div>
         </div>
 
         <div className="bg-[#0c1830] border border-white/10 rounded-3xl p-6 md:p-8">
-          <h3 className="text-2xl font-bold text-white mb-5">
-            2. Choose Exterior Package
-          </h3>
+          <h3 className="text-2xl font-bold text-white mb-5">2. Choose Exterior Package</h3>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
                 key: "expressExterior",
                 title: "Express Exterior",
                 desc: "Sedan base: $120",
-                plus: vehicleType === "sedan" ? "No extra charge" : `+ $${vehicleUpcharges[vehicleType].expressExterior}`,
+                plus:
+                  vehicleType === "sedan"
+                    ? "No extra charge"
+                    : `+ $${vehicleUpcharges[vehicleType].expressExterior}`,
               },
               {
                 key: "deluxeExterior",
                 title: "Deluxe Exterior",
                 desc: "Sedan base: $190",
-                plus: vehicleType === "sedan" ? "No extra charge" : `+ $${vehicleUpcharges[vehicleType].deluxeExterior}`,
+                plus:
+                  vehicleType === "sedan"
+                    ? "No extra charge"
+                    : `+ $${vehicleUpcharges[vehicleType].deluxeExterior}`,
               },
             ].map((item) => {
-              const active = exteriorPackage === item.key;
+              const active = exteriorPackage === item.key
 
               return (
                 <button
@@ -1293,36 +1292,40 @@ export default function EuroShineServices() {
                       : "bg-[#0c1830] text-white border-white/10 hover:border-[#d4af37] hover:bg-[#10203d]"
                   }`}
                 >
-                  <div className="font-bold text-xl mb-1">{item.title}</div>
-                  <div className="text-sm opacity-80 mb-2">{item.desc}</div>
-                  <div className="text-[#d4af37] font-semibold">{item.plus}</div>
+                  <div className="text-xl font-bold">{item.title}</div>
+                  <div className="text-base mt-1 opacity-80">{item.desc}</div>
+                  <div className="text-xl mt-2 font-semibold">{item.plus}</div>
                 </button>
-              );
+              )
             })}
           </div>
         </div>
 
         <div className="bg-[#0c1830] border border-white/10 rounded-3xl p-6 md:p-8">
-          <h3 className="text-2xl font-bold text-white mb-5">
-            3. Choose Interior Package
-          </h3>
+          <h3 className="text-2xl font-bold text-white mb-5">3. Choose Interior Package</h3>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
                 key: "expressInterior",
                 title: "Express Interior",
                 desc: "Sedan base: $210",
-                plus: vehicleType === "sedan" ? "No extra charge" : `+ $${vehicleUpcharges[vehicleType].expressInterior}`,
+                plus:
+                  vehicleType === "sedan"
+                    ? "No extra charge"
+                    : `+ $${vehicleUpcharges[vehicleType].expressInterior}`,
               },
               {
                 key: "deluxeInterior",
                 title: "Deluxe Interior",
                 desc: "Sedan base: $430",
-                plus: vehicleType === "sedan" ? "No extra charge" : `+ $${vehicleUpcharges[vehicleType].deluxeInterior}`,
+                plus:
+                  vehicleType === "sedan"
+                    ? "No extra charge"
+                    : `+ $${vehicleUpcharges[vehicleType].deluxeInterior}`,
               },
             ].map((item) => {
-              const active = interiorPackage === item.key;
+              const active = interiorPackage === item.key
 
               return (
                 <button
@@ -1335,91 +1338,81 @@ export default function EuroShineServices() {
                       : "bg-[#0c1830] text-white border-white/10 hover:border-[#d4af37] hover:bg-[#10203d]"
                   }`}
                 >
-                  <div className="font-bold text-xl mb-1">{item.title}</div>
-                  <div className="text-sm opacity-80 mb-2">{item.desc}</div>
-                  <div className="text-[#d4af37] font-semibold">{item.plus}</div>
+                  <div className="text-xl font-bold">{item.title}</div>
+                  <div className="text-base mt-1 opacity-80">{item.desc}</div>
+                  <div className="text-xl mt-2 font-semibold">{item.plus}</div>
                 </button>
-              );
+              )
             })}
           </div>
         </div>
 
         <div className="bg-[#0c1830] border border-white/10 rounded-3xl p-6 md:p-8">
-          <h3 className="text-2xl font-bold text-white mb-5">
-            4. Add Extras
-          </h3>
+          <h3 className="text-2xl font-bold text-white mb-5">4. Add Extras</h3>
 
-          <div className="space-y-6">
-            <label className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[#10203d] px-5 py-4 cursor-pointer">
-              <div>
-                <div className="text-white font-semibold text-lg">
-                  Engine Bay Cleaning
-                </div>
-                <div className="text-gray-400 text-sm">
-                  + $90
-                </div>
-              </div>
-
-              <input
-                type="checkbox"
-                checked={engineBay}
-                onChange={(e) => setEngineBay(e.target.checked)}
-                className="w-5 h-5 accent-[#d4af37]"
-              />
-            </label>
-
+          <div className="rounded-2xl border border-white/10 bg-[#10203d] p-5 flex items-center justify-between gap-4">
             <div>
-              <div className="text-white font-semibold text-lg mb-3">
-                Pet Hair Removal
-              </div>
+              <div className="text-xl font-bold text-white">Engine Bay Cleaning</div>
+              <div className="text-gray-300 mt-1">+ $90</div>
+            </div>
 
-              <div className="flex flex-wrap gap-4">
-                {[
-                  { key: "none", label: "None", price: 0 },
-                  { key: "light", label: "Light", price: 30 },
-                  { key: "medium", label: "Medium", price: 40 },
-                  { key: "heavy", label: "Heavy", price: 50 },
-                ].map((item) => {
-                  const active = petHairLevel === item.key;
+            <input
+              type="checkbox"
+              checked={engineBay}
+              onChange={(e) => setEngineBay(e.target.checked)}
+              className="w-5 h-5 accent-[#d4af37]"
+            />
+          </div>
 
-                  return (
-                    <button
-                      key={item.key}
-                      type="button"
-                      onClick={() => setPetHairLevel(item.key)}
-                      className={`rounded-2xl p-4 border text-left transition-all duration-200 ${
-                        active
-                          ? "bg-[#d4af37] text-[#07111f] border-[#d4af37] shadow-[0_0_0_1px_rgba(212,175,55,0.35),0_12px_30px_rgba(212,175,55,0.15)]"
-                          : "bg-[#0c1830] text-white border-white/10 hover:border-[#d4af37] hover:bg-[#10203d]"
-                      }`}
-                    >
-                      <div className="font-semibold">{item.label}</div>
-                      <div className="text-sm opacity-80">
-                        {item.price === 0 ? "No extra charge" : `+ $${item.price}`}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
+          <div className="mt-6">
+            <div className="text-xl font-bold text-white mb-4">Pet Hair Removal</div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { key: "none", label: "None", price: 0 },
+                { key: "light", label: "Light", price: 30 },
+                { key: "medium", label: "Medium", price: 40 },
+                { key: "heavy", label: "Heavy", price: 50 },
+              ].map((item) => {
+                const active = petHairLevel === item.key
+
+                return (
+                  <button
+                    key={item.key}
+                    type="button"
+                    onClick={() => setPetHairLevel(item.key)}
+                    className={`rounded-2xl p-4 border text-left transition-all duration-200 ${
+                      active
+                        ? "bg-[#d4af37] text-[#07111f] border-[#d4af37] shadow-[0_0_0_1px_rgba(212,175,55,0.35),0_12px_30px_rgba(212,175,55,0.15)]"
+                        : "bg-[#0c1830] text-white border-white/10 hover:border-[#d4af37] hover:bg-[#10203d]"
+                    }`}
+                  >
+                    <div className="text-lg font-bold">{item.label}</div>
+                    <div className="text-base mt-1">
+                      {item.price === 0 ? "No extra charge" : `+ $${item.price}`}
+                    </div>
+                  </button>
+                )
+              })}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="sticky top-24">
-        <div className="bg-[#d4af37] text-[#07111f] rounded-3xl p-6 md:p-8 shadow-2xl">
+      <div className="lg:sticky lg:top-24">
+        <div className="w-full rounded-[28px] bg-[#d4af37] text-[#07111f] p-7 md:p-8 shadow-2xl">
           <p className="pl-1 mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#07111f]/80">
             Booking Summary
           </p>
 
-          <h3 className="text-3xl font-bold mb-6">
+          <h3 className="text-4xl font-extrabold mb-6 leading-none">
             Your Estimated Total
           </h3>
 
           <div className="space-y-4 border-b border-black/15 pb-6 mb-6 text-sm md:text-base">
             <div className="flex justify-between gap-4">
               <span className="font-medium">Vehicle</span>
-              <span className="font-semibold">{formatLabel(vehicleType)}</span>
+              <span className="font-semibold text-right">{formatLabel(vehicleType)}</span>
             </div>
 
             <div className="flex justify-between gap-4">
@@ -1428,8 +1421,7 @@ export default function EuroShineServices() {
                 {formatLabel(exteriorPackage)}
                 <br />
                 <span className="text-black/70">
-                  ${exteriorBase}
-                  {exteriorUpcharge > 0 ? ` + $${exteriorUpcharge}` : ""}
+                  ${exteriorBase} {exteriorUpcharge > 0 ? ` + $${exteriorUpcharge}` : ""}
                 </span>
               </span>
             </div>
@@ -1440,50 +1432,46 @@ export default function EuroShineServices() {
                 {formatLabel(interiorPackage)}
                 <br />
                 <span className="text-black/70">
-                  ${interiorBase}
-                  {interiorUpcharge > 0 ? ` + $${interiorUpcharge}` : ""}
+                  ${interiorBase} {interiorUpcharge > 0 ? ` + $${interiorUpcharge}` : ""}
                 </span>
               </span>
             </div>
 
             <div className="flex justify-between gap-4">
               <span className="font-medium">Engine Bay</span>
-              <span className="font-semibold">
+              <span className="font-semibold text-right">
                 {engineBay ? `+ $${engineBayPrice}` : "No"}
               </span>
             </div>
 
             <div className="flex justify-between gap-4">
               <span className="font-medium">Pet Hair</span>
-              <span className="font-semibold">
-                {petHairLevel === "none"
-                  ? "None"
-                  : `${formatLabel(petHairLevel)} + $${petHairPrice}`}
+              <span className="font-semibold text-right">
+                {petHairLevel === "none" ? "None" : `${formatLabel(petHairLevel)} + $${petHairPrice}`}
               </span>
             </div>
           </div>
 
-          <div className="flex items-end justify-between gap-4 mb-6">
-            <span className="text-lg font-medium">Estimated Total</span>
-            <span className="text-4xl font-extrabold">${totalPrice}</span>
+          <div className="flex items-end justify-between gap-4 mb-5">
+            <span className="text-2xl font-bold">Estimated Total</span>
+            <span className="text-5xl font-extrabold">${totalPrice}</span>
           </div>
 
-          <p className="text-sm mb-6 text-black/75">
-            Starting package prices are based on sedan vehicles. Larger vehicles
-            and add-ons are calculated above.
+          <p className="text-black/75 leading-relaxed mb-6">
+            Starting package prices are based on sedan vehicles. Larger vehicles and add-ons are calculated above.
           </p>
 
-          <div className="grid gap-3">
+          <div className="space-y-3">
             <a
-              href="tel:4753755339"
-              className="w-full text-center rounded-2xl bg-[#07111f] text-white font-semibold px-5 py-4 hover:bg-black transition"
+              href="#contact"
+              className="block w-full rounded-full bg-[#07111f] text-white text-center font-semibold py-3 px-5 hover:opacity-90 transition"
             >
               Continue to Booking
             </a>
 
             <a
-              href="mailto:euroshine.ct@gmail.com?subject=Booking Request"
-              className="w-full text-center rounded-2xl border border-black/20 font-semibold px-5 py-4 hover:bg-black/5 transition"
+              href="mailto:euroshine.ct@gmail.com?subject=EuroShine%20Booking%20Request"
+              className="block w-full rounded-full border border-black/20 text-center font-semibold py-3 px-5 hover:bg-black/5 transition"
             >
               Email This Request
             </a>
