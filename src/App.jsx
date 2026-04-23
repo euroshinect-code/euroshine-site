@@ -1769,8 +1769,9 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
       {/* 7. FINAL CTA                              */}
       {/* ══════════════════════════════════════════ */}
       <section id="cta">
-        <div className="section-wrap">
-          <div className="fade-in">
+        <div className="mx-auto max-w-2xl px-4 text-center">
+
+          <div className="fade-in text-center">
             <div className="section-eyebrow">Ready to Book?</div>
             {/* CTA headline — edit here */}
             <h2 className="gold-text">
