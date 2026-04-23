@@ -1769,9 +1769,8 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
       {/* 7. FINAL CTA                              */}
       {/* ══════════════════════════════════════════ */}
       <section id="cta">
-        <div className="mx-auto max-w-2xl px-4 text-center">
-
-          <div className="fade-in text-center">
+        <div className="section-wrap">
+          <div className="fade-in">
             <div className="section-eyebrow">Ready to Book?</div>
             {/* CTA headline — edit here */}
             <h2 className="gold-text">
@@ -1779,10 +1778,9 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
               <span className="gold-text">Shine Like New.</span>
             </h2>
             {/* CTA subtext — edit here */}
-            <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="cta-sub">
               Call or text to schedule your appointment, or email us with any questions.
-              Mention promo code <span className="text-[#d4af37] font-bold">SPRING30</span>{" "}
-              to get an additional 30% off services totaling $200 or more.
+              We're proud to serve Connecticut — and we'd love to serve you.
             </p>
 
             <div className="cta-cards">
