@@ -957,6 +957,22 @@ const addOnPricing = {
     heavy: 50,
   },
 };
+const fullDetailPricing = {
+  sedan: {
+    express: 300,
+    deluxe: 550,
+  },
+  suv: {
+    express: 380,
+    deluxe: 630,
+  },
+  van: {
+    express: 395,
+    deluxe: 650,
+  },
+};
+
+const comboDiscountRate = 0.25;
 // ── MAIN PAGE COMPONENT ───────────────────────────────────────
 export default function EuroShineServices() {
   const observerRef = useRef(null);
@@ -967,19 +983,50 @@ export default function EuroShineServices() {
   const [petHairLevel, setPetHairLevel] = useState("none");
 
   const exteriorBase = basePricing[exteriorPackage];
-  const interiorBase = basePricing[interiorPackage];
+const interiorBase = basePricing[interiorPackage];
 
-  const exteriorUpcharge = vehicleUpcharges[vehicleType][exteriorPackage];
-  const interiorUpcharge = vehicleUpcharges[vehicleType][interiorPackage];
+const exteriorUpcharge = vehicleUpcharges[vehicleType][exteriorPackage];
+const interiorUpcharge = vehicleUpcharges[vehicleType][interiorPackage];
 
-  const engineBayPrice = engineBay ? addOnPricing.engineBay : 0;
-  const petHairPrice = addOnPricing.petHair[petHairLevel] || 0;
+const engineBayPrice = engineBay ? addOnPricing.engineBay : 0;
+const petHairPrice = addOnPricing.petHair[petHairLevel] || 0;
 
-  const exteriorTotal = exteriorBase + exteriorUpcharge;
-  const interiorTotal = interiorBase + interiorUpcharge;
+const exteriorTotal = exteriorBase + exteriorUpcharge;
+const interiorTotal = interiorBase + interiorUpcharge;
 
-  const totalPrice =
-    exteriorTotal + interiorTotal + engineBayPrice + petHairPrice;
+const packageSubtotal = exteriorTotal + interiorTotal;
+
+const isFullExpress =
+  exteriorPackage === "expressExterior" &&
+  interiorPackage === "expressInterior";
+
+const isFullDeluxe =
+  exteriorPackage === "deluxeExterior" &&
+  interiorPackage === "deluxeInterior";
+
+const isComboPackage =
+  (exteriorPackage === "expressExterior" && interiorPackage === "deluxeInterior") ||
+  (exteriorPackage === "deluxeExterior" && interiorPackage === "expressInterior");
+
+let discountedPackageTotal = packageSubtotal;
+let discountAmount = 0;
+let discountLabel = "";
+
+if (isFullExpress) {
+  discountedPackageTotal = fullDetailPricing[vehicleType].express;
+  discountAmount = packageSubtotal - discountedPackageTotal;
+  discountLabel = "Full Detail Discount";
+} else if (isFullDeluxe) {
+  discountedPackageTotal = fullDetailPricing[vehicleType].deluxe;
+  discountAmount = packageSubtotal - discountedPackageTotal;
+  discountLabel = "Full Detail Discount";
+} else if (isComboPackage) {
+  discountAmount = Math.round(packageSubtotal * comboDiscountRate);
+  discountedPackageTotal = packageSubtotal - discountAmount;
+  discountLabel = "Combo Discount";
+}
+
+const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
 
   const formatLabel = (value) => {
     const labels = {
@@ -1413,6 +1460,14 @@ export default function EuroShineServices() {
             <div className="flex justify-between gap-4">
               <span className="font-medium">Vehicle</span>
               <span className="font-semibold text-right">{formatLabel(vehicleType)}</span>
+              {discountAmount > 0 && (
+             <div className="flex justify-between gap-4">
+             <span className="font-medium">{discountLabel}</span>
+            <span className="font-semibold text-right text-green-900">
+               - ${discountAmount}
+            </span>
+         </div>
+             )}
             </div>
 
             <div className="flex justify-between gap-4">
