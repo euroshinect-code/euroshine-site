@@ -973,6 +973,34 @@ const fullDetailPricing = {
 };
 
 const comboDiscountRate = 0.25;
+const promoCode = "SPRING30";
+const promoDiscountPercent = 30;
+const promoMinimum = 200;
+
+const promoEndDate = new Date("2026-05-22T23:59:59");
+
+function getTimeLeft(targetDate) {
+  const now = new Date();
+  const difference = targetDate - now;
+
+  if (difference <= 0) {
+    return {
+      expired: true,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
+  }
+
+  return {
+    expired: false,
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((difference / (1000 * 60)) % 60),
+    seconds: Math.floor((difference / 1000) % 60),
+  };
+}
 // ── MAIN PAGE COMPONENT ───────────────────────────────────────
 export default function EuroShineServices() {
   const observerRef = useRef(null);
@@ -981,6 +1009,15 @@ export default function EuroShineServices() {
   const [interiorPackage, setInteriorPackage] = useState("expressInterior");
   const [engineBay, setEngineBay] = useState(false);
   const [petHairLevel, setPetHairLevel] = useState("none");
+  const [promoTimeLeft, setPromoTimeLeft] = useState(getTimeLeft(promoEndDate));
+
+  useEffect(() => {
+  const interval = setInterval(() => {
+    setPromoTimeLeft(getTimeLeft(promoEndDate));
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);
 
   const exteriorBase = basePricing[exteriorPackage];
 const interiorBase = basePricing[interiorPackage];
@@ -1250,6 +1287,100 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
           </div>
         </div>
       </section>
+
+<section className="pt-8 pb-6">
+  <div className="mx-auto w-full max-w-[1440px] px-6 md:px-8 lg:px-10">
+    <div className="rounded-[32px] border border-[#d4af37]/30 bg-[linear-gradient(135deg,rgba(212,175,55,0.16),rgba(12,24,48,0.96))] p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+      <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-center">
+        <div>
+          <p className="mb-3 inline-flex rounded-full border border-[#d4af37]/40 bg-[#d4af37]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[#d4af37]">
+            Limited-Time Offer
+          </p>
+
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+            Extra {promoDiscountPercent}% Off With Code{" "}
+            <span className="text-[#d4af37]">{promoCode}</span>
+          </h2>
+
+          <p className="mt-4 max-w-3xl text-base md:text-lg leading-relaxed text-gray-200">
+            Get an additional {promoDiscountPercent}% discount on any service total of ${promoMinimum} or more.
+            Call or text us and mention code{" "}
+            <span className="font-bold text-[#d4af37]">{promoCode}</span>{" "}
+            to claim your offer.
+          </p>
+
+          <p className="mt-3 text-sm md:text-base text-gray-300">
+            Promotion valid for 1 month only.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="tel:4753755339"
+              className="rounded-full bg-[#d4af37] text-[#07111f] font-semibold px-6 py-3 hover:brightness-110 transition"
+            >
+              Call Now
+            </a>
+
+            <a
+              href="#contact"
+              className="rounded-full border border-white/15 text-white font-semibold px-6 py-3 hover:border-[#d4af37] hover:text-[#d4af37] transition"
+            >
+              Book With Promo Code
+            </a>
+          </div>
+        </div>
+
+        <div className="rounded-[28px] border border-white/10 bg-[#0c1830]/80 p-5 md:p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#d4af37] mb-4">
+            Offer Ends In
+          </p>
+
+          {promoTimeLeft.expired ? (
+            <div className="rounded-2xl bg-[#07111f] px-5 py-6 text-center">
+              <div className="text-2xl font-bold text-white">Promotion Ended</div>
+              <div className="mt-2 text-gray-300">
+                Contact us for current offers and availability.
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-4 gap-3">
+              {[
+                { label: "Days", value: promoTimeLeft.days },
+                { label: "Hours", value: promoTimeLeft.hours },
+                { label: "Min", value: promoTimeLeft.minutes },
+                { label: "Sec", value: promoTimeLeft.seconds },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-2xl bg-[#07111f] px-3 py-5 text-center border border-white/10"
+                >
+                  <div className="text-2xl md:text-3xl font-extrabold text-[#d4af37]">
+                    {String(item.value).padStart(2, "0")}
+                  </div>
+                  <div className="mt-1 text-xs uppercase tracking-[0.2em] text-gray-400">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-5 rounded-2xl border border-[#d4af37]/25 bg-[#d4af37]/10 px-4 py-4">
+            <div className="text-sm uppercase tracking-[0.2em] text-[#d4af37]">
+              Promo Code
+            </div>
+            <div className="mt-2 text-3xl font-extrabold text-white tracking-[0.16em]">
+              {promoCode}
+            </div>
+            <div className="mt-2 text-sm text-gray-300">
+              Mention this code by phone or message to activate the discount.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
             {/* ══════════════════════════════════════════ */}
       {/* BOOKING CALCULATOR */}
@@ -1647,9 +1778,10 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
               <span className="gold-text">Shine Like New.</span>
             </h2>
             {/* CTA subtext — edit here */}
-            <p className="cta-sub">
+            <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">
               Call or text to schedule your appointment, or email us with any questions.
-              We're proud to serve Connecticut — and we'd love to serve you.
+              Mention promo code <span className="text-[#d4af37] font-bold">SPRING30</span>{" "}
+              to get an additional 30% off services totaling $200 or more.
             </p>
 
             <div className="cta-cards">
