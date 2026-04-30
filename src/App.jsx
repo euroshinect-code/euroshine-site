@@ -767,48 +767,22 @@ const styles = `
 // Express package items — edit descriptions and prices here
 const expressPackages = [
   {
-    
-  type: "Exterior",
-  title: "Express Exterior",
-    desc: "A thorough exterior refresh — foam pre-wash, hand wash, wheel clean, tire dressing, and windows. Ideal for regular maintenance.",
-    price: "$120",
-    includes: [
-      "Foam pre-soak & pressure rinse",
-      "Hand wash & decontamination",
-      "Wheel & brake dust removal",
-      "Tire shine",
-      "Exterior window polish",
-      "Spray wax protection",
-      "Door jamb wipe-down",
-    ],
-  },
-  {
-    type: "Interior",
-    title: "Express Interior",
-    desc: "A deep interior refresh — vacuum, wipe-down, upholstery clean, and window treatment for a spotless cabin.",
-    price: "$210",
-    includes: [
-      "Full vacuum (seats, carpet, trunk)",
-      "Dashboard & panel wipe-down",
-      "Door jambs & cup holders cleaned",
-      "Interior glass treatment",
-      "Light odor refresh",
-    ],
-  },
-  {
     type: "Full Detail",
-    title: "Express Full Detail",
-    price: "$300",
-    was: "$330",
-    save: "Save $30",
+    title: "Express Detail",
+    price: "$200",
     featured: true,
-    desc: "Our most popular package — combines interior and exterior detailing in one visit and saves you money compared to booking separately.",
-    includes: 
-    [
-      "Everything in Express Exterior",
-      "Everything in Express Interior",
-      "Combined booking discount",
-      "Priority scheduling available",
+    desc: "A clean maintenance detail for vehicles that need a fresh reset inside and out. Perfect for regular upkeep.",
+    includes: [
+      "Sedan: $200",
+      "Small SUV: $250",
+      "Van / 7+ seat SUV: $300–$325",
+      "Exterior: 3-step wash, static dust removal, hand wash, rinse & wax",
+      "Basic wheel cleaning",
+      "Door jamb rinse",
+      "Exterior & interior window wiping",
+      "Interior: basic vacuum + mat cleaning",
+      "All surface wiping, dashboard and screen streak-free finish",
+      "Estimated time: 2.5–3 hours",
     ],
   },
 ];
@@ -816,51 +790,25 @@ const expressPackages = [
 // Deluxe package items — edit descriptions and prices here
 const deluxePackages = [
   {
-    type: "Exterior",
-    title: "Deluxe Exterior",
-    desc: "A premium exterior treatment using European-grade products — clay bar decontamination, hand wash, iron remover, and protective dressing.",
-    price: "$190",
-    includes: [
-    "Everything from Express Exterior",
-    "+ Clay bar decontamination",
-    "+ Iron & fallout removal",
-    "+ Deep wheel cleaning",
-    "+ Trim restoration",
-    "+ Premium protection"
-   ],
-  },
-  {
-    type: "Interior",
-    title: "Deluxe Interior",
-    desc: "A thorough premium interior detailing — steam clean, leather conditioning, stain extraction, and a fresh protected finish throughout.",
-    price: "$430",
-    includes: [
-    "Everything from Express Interior",
-    "+ Steam cleaning & sanitizing",
-    "+ Deep vacuum & extraction (seats, carpets)",
-    "+ Stain removal treatment",
-    "+ Vent & hard-to-reach area cleaning",
-    "+ Leather conditioning & protection",
-    "+ Interior protection finish"
-    ],
-  },
-  {
     type: "Full Detail",
-    title: "Deluxe Full Detail",
-    price: "$550",
-    was: "$620",
-    save: "Save $70",
+    title: "Deluxe Detail",
+    price: "$300",
     featured: true,
-    desc: "The most comprehensive EuroShine experience. Full premium interior and exterior detailing in a single appointment — our flagship service.",
+    desc: "A deeper premium detail using top European professional chemicals. Best choice for cars that need stronger interior and exterior cleaning.",
     includes: [
-  "Everything from Express Package",
-  "Deep interior cleaning & extraction",
-  "Steam cleaning & sanitizing",
-  "Stain removal treatment",
-  "Clay bar & paint decontamination",
-  "Premium exterior finish",
-  "Priority scheduling",
-],
+      "Sedan: $300",
+      "Small SUV: $350",
+      "Van / 7+ seat SUV: $400–$425",
+      "Everything included in Express Detail",
+      "Top European professional chemicals",
+      "Exterior iron removal",
+      "Deep wheel cleaning, including calipers",
+      "Pink ceramic effect shampoo",
+      "Seat & carpet wet cleaning",
+      "Deep steering wheel cleaning",
+      "Deep black mat coating",
+      "Estimated time: 3.5–4 hours",
+    ],
   },
 ];
 
@@ -921,10 +869,10 @@ function PackageCard({ pkg }) {
   );
 }
 const basePricing = {
-  expressExterior: 120,
-  expressInterior: 210,
-  deluxeExterior: 190,
-  deluxeInterior: 430,
+  expressExterior: 125,
+  expressInterior: 150,
+  deluxeExterior: 175,
+  deluxeInterior: 200,
 };
 
 const vehicleUpcharges = {
@@ -935,16 +883,16 @@ const vehicleUpcharges = {
     deluxeInterior: 0,
   },
   suv: {
-    expressExterior: 30,
-    expressInterior: 50,
-    deluxeExterior: 50,
-    deluxeInterior: 80,
+    expressExterior: 25,
+    expressInterior: 25,
+    deluxeExterior: 25,
+    deluxeInterior: 25,
   },
   van: {
-    expressExterior: 40,
-    expressInterior: 75,
-    deluxeExterior: 60,
-    deluxeInterior: 90,
+    expressExterior: 50,
+    expressInterior: 50,
+    deluxeExterior: 50,
+    deluxeInterior: 50,
   },
 };
 
@@ -959,48 +907,19 @@ const addOnPricing = {
 };
 const fullDetailPricing = {
   sedan: {
-    express: 300,
-    deluxe: 550,
+    express: 200,
+    deluxe: 300,
   },
   suv: {
-    express: 380,
-    deluxe: 630,
+    express: 250,
+    deluxe: 350,
   },
   van: {
-    express: 395,
-    deluxe: 650,
+    express: 325,
+    deluxe: 425,
   },
 };
 
-const comboDiscountRate = 0.25;
-const promoCode = "SPRING30";
-const promoDiscountPercent = 30;
-const promoMinimum = 200;
-
-const promoEndDate = new Date("2026-05-22T23:59:59");
-
-function getTimeLeft(targetDate) {
-  const now = new Date();
-  const difference = targetDate - now;
-
-  if (difference <= 0) {
-    return {
-      expired: true,
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-    };
-  }
-
-  return {
-    expired: false,
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((difference / (1000 * 60)) % 60),
-    seconds: Math.floor((difference / 1000) % 60),
-  };
-}
 // ── MAIN PAGE COMPONENT ───────────────────────────────────────
 export default function EuroShineServices() {
   const observerRef = useRef(null);
@@ -1009,15 +928,7 @@ export default function EuroShineServices() {
   const [interiorPackage, setInteriorPackage] = useState("expressInterior");
   const [engineBay, setEngineBay] = useState(false);
   const [petHairLevel, setPetHairLevel] = useState("none");
-  const [promoTimeLeft, setPromoTimeLeft] = useState(getTimeLeft(promoEndDate));
-
-  useEffect(() => {
-  const interval = setInterval(() => {
-    setPromoTimeLeft(getTimeLeft(promoEndDate));
-  }, 1000);
-
-  return () => clearInterval(interval);
-}, []);
+  
 
   const exteriorBase = basePricing[exteriorPackage];
 const interiorBase = basePricing[interiorPackage];
@@ -1288,100 +1199,6 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
         </div>
       </section>
 
-<section className="pt-8 pb-6">
-  <div className="mx-auto w-full max-w-[1440px] px-6 md:px-8 lg:px-10">
-    <div className="rounded-[32px] border border-[#d4af37]/30 bg-[linear-gradient(135deg,rgba(212,175,55,0.16),rgba(12,24,48,0.96))] p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-      <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-center">
-        <div>
-          <p className="mb-3 inline-flex rounded-full border border-[#d4af37]/40 bg-[#d4af37]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[#d4af37]">
-            Limited-Time Offer
-          </p>
-
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
-            Extra {promoDiscountPercent}% Off With Code{" "}
-            <span className="text-[#d4af37]">{promoCode}</span>
-          </h2>
-
-          <p className="mt-4 max-w-3xl text-base md:text-lg leading-relaxed text-gray-200">
-            Get an additional {promoDiscountPercent}% discount on any service total of ${promoMinimum} or more.
-            Call or text us and mention code{" "}
-            <span className="font-bold text-[#d4af37]">{promoCode}</span>{" "}
-            to claim your offer.
-          </p>
-
-          <p className="mt-3 text-sm md:text-base text-gray-300">
-            Promotion valid for 1 month only.
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="tel:4753755339"
-              className="rounded-full bg-[#d4af37] text-[#07111f] font-semibold px-6 py-3 hover:brightness-110 transition"
-            >
-              Call Now
-            </a>
-
-            <a
-              href="#contact"
-              className="rounded-full border border-white/15 text-white font-semibold px-6 py-3 hover:border-[#d4af37] hover:text-[#d4af37] transition"
-            >
-              Book With Promo Code
-            </a>
-          </div>
-        </div>
-
-        <div className="rounded-[28px] border border-white/10 bg-[#0c1830]/80 p-5 md:p-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#d4af37] mb-4">
-            Offer Ends In
-          </p>
-
-          {promoTimeLeft.expired ? (
-            <div className="rounded-2xl bg-[#07111f] px-5 py-6 text-center">
-              <div className="text-2xl font-bold text-white">Promotion Ended</div>
-              <div className="mt-2 text-gray-300">
-                Contact us for current offers and availability.
-              </div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-4 gap-3">
-              {[
-                { label: "Days", value: promoTimeLeft.days },
-                { label: "Hours", value: promoTimeLeft.hours },
-                { label: "Min", value: promoTimeLeft.minutes },
-                { label: "Sec", value: promoTimeLeft.seconds },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-2xl bg-[#07111f] px-3 py-5 text-center border border-white/10"
-                >
-                  <div className="text-2xl md:text-3xl font-extrabold text-[#d4af37]">
-                    {String(item.value).padStart(2, "0")}
-                  </div>
-                  <div className="mt-1 text-xs uppercase tracking-[0.2em] text-gray-400">
-                    {item.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div className="mt-5 rounded-2xl border border-[#d4af37]/25 bg-[#d4af37]/10 px-4 py-4">
-            <div className="text-sm uppercase tracking-[0.2em] text-[#d4af37]">
-              Promo Code
-            </div>
-            <div className="mt-2 text-3xl font-extrabold text-white tracking-[0.16em]">
-              {promoCode}
-            </div>
-            <div className="mt-2 text-sm text-gray-300">
-              Mention this code by phone or message to activate the discount.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
             {/* ══════════════════════════════════════════ */}
       {/* BOOKING CALCULATOR */}
       {/* ══════════════════════════════════════════ */}
@@ -1441,7 +1258,7 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
               {
                 key: "expressExterior",
                 title: "Express Exterior",
-                desc: "Sedan base: $120",
+                desc: "Sedan base: $125",
                 plus:
                   vehicleType === "sedan"
                     ? "No extra charge"
@@ -1450,7 +1267,7 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
               {
                 key: "deluxeExterior",
                 title: "Deluxe Exterior",
-                desc: "Sedan base: $190",
+                desc: "Sedan base: $175",
                 plus:
                   vehicleType === "sedan"
                     ? "No extra charge"
@@ -1487,7 +1304,7 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
               {
                 key: "expressInterior",
                 title: "Express Interior",
-                desc: "Sedan base: $210",
+                desc: "Sedan base: $150",
                 plus:
                   vehicleType === "sedan"
                     ? "No extra charge"
@@ -1496,7 +1313,7 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
               {
                 key: "deluxeInterior",
                 title: "Deluxe Interior",
-                desc: "Sedan base: $430",
+                desc: "Sedan base: $200",
                 plus:
                   vehicleType === "sedan"
                     ? "No extra charge"
