@@ -918,9 +918,19 @@ function PackageCard({ pkg }) {
 
       <div className="pkg-includes-title">What's Included</div>
       <ul className="pkg-includes">
-        {pkg.includes.map((item, i) => (
-          <li key={i}><CheckIcon />{item}</li>
-        ))}
+        {pkg.includes.map((item, i) => {
+  const isSectionTitle = item === "Exterior:" || item === "Interior:";
+
+  return (
+    <li
+      key={i}
+      className={isSectionTitle ? "text-[#d4af37] font-extrabold uppercase tracking-[0.2em] mt-3" : ""}
+    >
+      {!isSectionTitle && <CheckIcon />}
+      {item}
+    </li>
+  );
+})}
       </ul>
     </div>
   );
