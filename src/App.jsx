@@ -1417,7 +1417,7 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
           <div className="rounded-2xl border border-white/10 bg-[#10203d] p-5 flex items-center justify-between gap-4">
             <div>
               <div className="text-xl font-bold text-white">Engine Bay Cleaning</div>
-              <div className="text-gray-300 mt-1">+ $90</div>
+              <div className="text-gray-300 mt-1">+ $60</div>
             </div>
 
             <input
