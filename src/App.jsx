@@ -953,6 +953,8 @@ const vehicleUpcharges = {
   },
 };
 
+const comboDiscountRate = 0;
+
 const addOnPricing = {
   engineBay: 90,
   petHair: {
@@ -1592,7 +1594,7 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
                   Remove built-up grime for a fresh, showroom-ready look under the hood.
                 </p>
               </div>
-              <div className="addon-price">$90</div>
+              <div className="addon-price">$60</div>
             </div>
           </div>
         </div>
