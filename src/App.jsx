@@ -956,7 +956,7 @@ const vehicleUpcharges = {
 const comboDiscountRate = 0;
 
 const addOnPricing = {
-  engineBay: 90,
+  engineBay: 60,
   petHair: {
     none: 0,
     light: 30,
