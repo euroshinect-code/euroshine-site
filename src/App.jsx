@@ -829,7 +829,6 @@ const deluxePackages = [
       "Exterior iron removal",
       "Deep wheel cleaning, including calipers",
       "Pink ceramic effect shampoo",
-      "Deep black mat coating",
     ],
   },
   {
@@ -839,11 +838,12 @@ const deluxePackages = [
     price: "$200",
     includes: [
       "Everything from Express Interior",
-      "Seat wet cleaning",
-      "Carpet wet cleaning",
+      "Seat light wet cleaning",
+      "Carpet light wet cleaning",
       "Deep steering wheel cleaning",
       "Deeper cleaning of high-touch areas",
       "Interior refresh finish",
+      "Deep black mat coating",
     ],
   },
   {
