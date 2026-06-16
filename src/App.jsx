@@ -764,20 +764,22 @@ const styles = `
 `;
 
 // ── DATA ───────────────────────────────────────────────────────
+// Basic Wash package — edit description and price here
+const basicWashPackage = {
+  type: "Basic Wash",
+  title: "Basic Wash",
+  desc: "A straightforward maintenance wash for a clean exterior finish.",
+  price: "$150",
+  includes: [
+    "Hand wash exterior",
+    "Wheels & tires cleaning",
+    "Vacuum interior",
+    "Streak-free windows",
+  ],
+};
+
 // Express package items — edit descriptions and prices here
 const expressPackages = [
-  {
-    type: "Exterior",
-    title: "Basic Wash",
-    desc: "A straightforward maintenance wash for a clean exterior finish.",
-    price: "$150",
-    includes: [
-      "Hand wash exterior",
-      "Wheels & tires cleaning",
-      "Vacuum interior",
-      "Streak-free windows",
-    ],
-  },
   {
     type: "Exterior",
     title: "Express Exterior",
@@ -1105,6 +1107,26 @@ export default function EuroShineServices() {
               All prices are starting rates based on sedan pricing.
               Final price depends on vehicle size and condition — we'll confirm before every appointment.
             </p>
+          </div>
+
+          {/* ── BASIC WASH ── */}
+          <div className="fade-in">
+            <div className="tier-label">
+              {/* Tier name — edit here */}
+              <span className="tier-badge gold-text">Basic Wash</span>
+              <span className="tier-sub">Quick Maintenance Wash</span>
+            </div>
+            <div className="tier-separator">
+              <div className="gold-line" />
+              <span className="tier-separator-label">Basic Wash Service</span>
+              <div className="gold-line" />
+            </div>
+            <div
+              className="pkg-row"
+              style={{ gridTemplateColumns: "minmax(290px, 390px)", justifyContent: "center" }}
+            >
+              <PackageCard pkg={basicWashPackage} />
+            </div>
           </div>
 
           {/* ── EXPRESS TIER ── */}
