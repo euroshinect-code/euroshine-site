@@ -862,7 +862,7 @@ const deluxePackages = [
       "Deep black mat coating",
       "Interior:",
       "Everything from Express Interior",
-      "Seat & carpet wet cleaning",
+      "Seat & carpet light wet cleaning",
       "Deep steering wheel cleaning",
       "Deep cleaning of high-touch areas",
     ],
