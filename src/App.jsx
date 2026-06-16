@@ -768,6 +768,18 @@ const styles = `
 const expressPackages = [
   {
     type: "Exterior",
+    title: "Basic Wash",
+    desc: "A straightforward maintenance wash for a clean exterior finish.",
+    price: "$150",
+    includes: [
+      "Hand wash exterior",
+      "Wheels & tires cleaning",
+      "Vacuum interior",
+      "Streak-free windows",
+    ],
+  },
+  {
+    type: "Exterior",
     title: "Express Exterior",
     desc: "A simple exterior refresh for regular maintenance.",
     price: "$125",
@@ -936,6 +948,7 @@ function PackageCard({ pkg }) {
   );
 }
 const basePricing = {
+  basicWash: 150,
   expressExterior: 125,
   expressInterior: 150,
   deluxeExterior: 175,
@@ -944,18 +957,21 @@ const basePricing = {
 
 const vehicleUpcharges = {
   sedan: {
+    basicWash: 0,
     expressExterior: 0,
     expressInterior: 0,
     deluxeExterior: 0,
     deluxeInterior: 0,
   },
   suv: {
+    basicWash: 25,
     expressExterior: 25,
     expressInterior: 25,
     deluxeExterior: 25,
     deluxeInterior: 25,
   },
   van: {
+    basicWash: 50,
     expressExterior: 50,
     expressInterior: 50,
     deluxeExterior: 50,
@@ -1050,6 +1066,7 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
       sedan: "Sedan",
       suv: "SUV / Jeep",
       van: "Van",
+      basicWash: "Basic Wash",
       expressExterior: "Express Exterior",
       deluxeExterior: "Deluxe Exterior",
       expressInterior: "Express Interior",
@@ -1324,6 +1341,15 @@ const totalPrice = discountedPackageTotal + engineBayPrice + petHairPrice;
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
+              {
+                key: "basicWash",
+                title: "Basic Wash",
+                desc: "Sedan base: $150",
+                plus:
+                  vehicleType === "sedan"
+                    ? "No extra charge"
+                    : `+ $${vehicleUpcharges[vehicleType].basicWash}`,
+              },
               {
                 key: "expressExterior",
                 title: "Express Exterior",
